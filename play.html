@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Quiz - Play</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Lobby Screen -->
+    <div id="lobbyScreen" class="screen">
+      <div class="lobby-content">
+        <h1>Waiting for Host</h1>
+        <p id="lobbyPlayerName" class="lobby-player-name"></p>
+        <p id="lobbyPlayerGroup" class="lobby-player-group"></p>
+        <div class="spinner"></div>
+        <p class="lobby-info">Quiz will start when the host begins...</p>
+      </div>
+    </div>
+
+    <!-- Question Screen -->
+    <div id="questionScreen" class="screen" style="display:none;">
+      <div class="question-header">
+        <div class="question-progress">
+          <span id="questionNumber">1</span> / <span id="questionTotal">10</span>
+        </div>
+        <div class="timer-ring-container">
+          <svg class="timer-ring" viewBox="0 0 100 100">
+            <circle class="timer-ring-circle" cx="50" cy="50" r="45"></circle>
+            <circle class="timer-ring-progress" id="timerProgress" cx="50" cy="50" r="45"></circle>
+          </svg>
+          <div class="timer-text" id="timerText">30s</div>
+        </div>
+      </div>
+
+      <div class="question-body">
+        <h2 id="questionText" class="question-text"></h2>
+        <div class="options-grid">
+          <button class="option-btn" data-index="0"></button>
+          <button class="option-btn" data-index="1"></button>
+          <button class="option-btn" data-index="2"></button>
+          <button class="option-btn" data-index="3"></button>
+        </div>
+      </div>
+
+      <div class="question-footer">
+        <div class="player-info">
+          <span id="playerNameDisplay"></span> • <span id="playerGroupDisplay"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Answer Feedback Screen -->
+    <div id="feedbackScreen" class="screen" style="display:none;">
+      <div class="feedback-content">
+        <div id="feedbackIcon" class="feedback-icon"></div>
+        <h2 id="feedbackTitle"></h2>
+        <p id="feedbackMessage"></p>
+        
+        <div class="score-box">
+          <div class="score-item">
+            <span class="score-label">Points This Round</span>
+            <span class="score-value" id="roundPoints">0</span>
+          </div>
+          <div class="score-divider"></div>
+          <div class="score-item">
+            <span class="score-label">Total Score</span>
+            <span class="score-value" id="totalScore">0</span>
+          </div>
+        </div>
+
+        <div id="badgeContainer" style="display:none;" class="badge-container">
+          <div class="badge">🏃 Top 3 Fastest!</div>
+        </div>
+
+        <div id="leaderboardSnippet" class="leaderboard-snippet" style="display:none;">
+          <h4>Top 5 Scores</h4>
+          <div id="leaderboardList"></div>
+        </div>
+
+        <p class="next-question-info">Next question coming soon...</p>
+      </div>
+    </div>
+
+    <!-- Final Score Screen -->
+    <div id="finalScreen" class="screen" style="display:none;">
+      <div class="final-content">
+        <h1>Quiz Complete!</h1>
+        <div class="final-player-info">
+          <p id="finalPlayerName"></p>
+          <p id="finalPlayerGroup"></p>
+        </div>
+
+        <div class="final-score-box">
+          <div class="final-score-label">Final Score</div>
+          <div class="final-score-value" id="finalScoreValue">0</div>
+        </div>
+
+        <div class="final-stats">
+          <div class="stat">
+            <span class="stat-label">Correct Answers</span>
+            <span class="stat-value" id="finalCorrect">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Accuracy</span>
+            <span class="stat-value" id="finalAccuracy">0%</span>
+          </div>
+        </div>
+
+        <button id="leaderboardBtn" class="btn btn-secondary">View Full Leaderboard</button>
+        <button id="exitBtn" class="btn btn-primary">Exit</button>
+      </div>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div id="leaderboardScreen" class="screen" style="display:none;">
+      <div class="leaderboard-header">
+        <h2>Leaderboard</h2>
+        <button id="closeLeaderboardBtn" class="btn-close">×</button>
+      </div>
+      <div id="leaderboardContent" class="leaderboard-content"></div>
+      <button id="leaderboardExitBtn" class="btn btn-primary" style="margin-top: 20px;">Back</button>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/play.js"></script>
+</body>
+</html>

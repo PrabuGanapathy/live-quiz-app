@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Quiz - Join</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="join-screen">
+      <div class="join-header">
+        <h1>Live Quiz</h1>
+        <p>Join a live quiz session</p>
+      </div>
+
+      <div class="join-form">
+        <div class="form-group">
+          <label for="playerName">Your Name</label>
+          <input 
+            type="text" 
+            id="playerName" 
+            placeholder="Enter your name" 
+            maxlength="50"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="playerGroup">Your Group</label>
+          <select id="playerGroup" required>
+            <option value="">-- Select a group --</option>
+          </select>
+          <small id="groupLoading" style="display:none; color: #666;">Loading groups...</small>
+          <small id="groupError" style="display:none; color: #e63946;"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="runCode">Quiz Run Code</label>
+          <input 
+            type="text" 
+            id="runCode" 
+            placeholder="e.g., AB3XQ9" 
+            maxlength="6"
+            style="text-transform: uppercase;"
+            required
+          >
+          <small>Ask the host for the 6-character code</small>
+        </div>
+
+        <button id="joinBtn" class="btn btn-primary btn-large">JOIN QUIZ</button>
+      </div>
+
+      <div class="join-footer">
+        <p>No login required • Quick join • Real-time scoring</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading screen -->
+  <div id="loadingScreen" class="loading-screen" style="display:none;">
+    <div class="spinner"></div>
+    <p>Joining quiz...</p>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/join.js"></script>
+</body>
+</html>
