@@ -1,0 +1,167 @@
+[
+  {
+    "text": "What is an insurance premium?",
+    "options": [
+      "The amount paid by the insured to the insurance company for coverage",
+      "The maximum amount the insurer will pay for a claim",
+      "The period during which the insurance policy is valid",
+      "The process of verifying the insured's health status"
+    ],
+    "correctIndex": 0,
+    "timeLimit": 30
+  },
+  {
+    "text": "What does 'Sum Assured' mean in an insurance policy?",
+    "options": [
+      "The total amount of premiums paid by the customer",
+      "The maximum amount the insurance company will pay in case of a claim",
+      "The discount offered on the insurance premium",
+      "The time period for which the policy is valid"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is a 'nominee' in an insurance policy?",
+    "options": [
+      "The person who approves insurance claims",
+      "The person designated to receive the insurance benefits in case of the policyholder's death",
+      "The person who sells insurance policies",
+      "The person who investigates insurance fraud"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is a 'claim' in insurance?",
+    "options": [
+      "A formal request to the insurance company to pay for losses covered under the policy",
+      "The period during which an insurance policy is active",
+      "The amount paid annually to maintain the insurance policy",
+      "The process of renewing an expired insurance policy"
+    ],
+    "correctIndex": 0,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is 'underwriting' in insurance?",
+    "options": [
+      "The process of selling insurance policies to customers",
+      "The process of assessing the risk and determining whether to accept or reject an insurance application",
+      "The process of paying out insurance claims to customers",
+      "The process of renewing expired insurance policies"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is the 'grace period' in an insurance policy?",
+    "options": [
+      "A period of time before the policy becomes active",
+      "An additional period allowed to pay the premium after its due date without losing coverage",
+      "The time between signing the policy and receiving the policy document",
+      "A period during which no claims can be filed"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What does IRDAI stand for?",
+    "options": [
+      "Indian Research and Development Authority for Insurance",
+      "Insurance Regulatory and Development Authority of India",
+      "Indian Revenue and Deposit Authority of Insurance",
+      "International Regulatory Department for Authorized Insurance"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is a 'Pre-Existing Disease' (PED) in health insurance?",
+    "options": [
+      "A disease that occurs after purchasing the insurance policy",
+      "A disease that the policyholder had before purchasing the insurance policy",
+      "A disease that is permanent and cannot be cured",
+      "A disease that is covered without any additional premium"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is a 'top-up plan' in insurance?",
+    "options": [
+      "An insurance plan that replaces your existing policy",
+      "An additional insurance plan that covers expenses beyond the limit of your base insurance plan",
+      "An insurance plan with flexible payment terms",
+      "An insurance plan exclusively for senior citizens"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is 'claim settlement' in insurance?",
+    "options": [
+      "The process of paying the annual premium to the insurance company",
+      "The process of the insurance company verifying and paying out a claim filed by the policyholder",
+      "The process of canceling an insurance policy",
+      "The process of renewing an expired insurance policy"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is the 'waiting period' in a health insurance policy?",
+    "options": [
+      "The time taken to approve a new insurance application",
+      "The period after policy purchase during which certain claims may not be covered",
+      "The time between paying the premium and receiving the policy document",
+      "The period before the policyholder can upgrade their coverage"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is 'co-payment' in health insurance?",
+    "options": [
+      "The entire premium paid by the policyholder",
+      "A fixed amount or percentage that the policyholder pays towards medical expenses; the insurer pays the rest",
+      "A penalty charge for late payment of premium",
+      "An additional charge for emergency medical services"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What does 'deductible' mean in an insurance policy?",
+    "options": [
+      "A reduction in the insurance premium for loyal customers",
+      "The amount the policyholder must pay out-of-pocket before the insurance coverage begins",
+      "The maximum amount the insurance company will pay for a claim",
+      "The annual cost of maintaining an insurance policy"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is 'policy renewal'?",
+    "options": [
+      "Changing the insurance company or switching to a different policy type",
+      "The process of extending an insurance policy beyond its expiration date by paying the renewal premium",
+      "Filing a claim under an insurance policy",
+      "Updating personal information with the insurance company"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  },
+  {
+    "text": "What is 'insurance fraud'?",
+    "options": [
+      "Paying insurance premiums on time",
+      "Making a false or exaggerated claim to receive insurance benefits",
+      "Renewing an insurance policy before it expires",
+      "Switching from one insurance company to another"
+    ],
+    "correctIndex": 1,
+    "timeLimit": 30
+  }
+]
