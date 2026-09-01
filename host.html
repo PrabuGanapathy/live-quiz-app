@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Quiz - Admin Console</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="loginScreen" class="screen" style="display: flex;">
+    <div class="join-form" style="max-width: 400px;">
+      <div class="join-header">
+        <h1>Admin Console</h1>
+        <p>Host Access Only</p>
+      </div>
+      <div class="form-group">
+        <label for="adminPin">PIN</label>
+        <input type="password" id="adminPin" placeholder="Enter admin PIN" maxlength="20">
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" placeholder="Enter password" maxlength="50">
+      </div>
+      <button id="loginBtn" class="btn btn-primary btn-large">LOGIN</button>
+    </div>
+  </div>
+
+  <!-- Dashboard Screen -->
+  <div id="dashboardScreen" class="screen" style="display: none;">
+    <div class="host-container">
+      <!-- Left Panel: Runs List -->
+      <div class="panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3>Quiz Runs</h3>
+          <button id="newRunBtn" class="btn btn-primary" style="width: auto; padding: 8px 16px;">+ New</button>
+        </div>
+        <div id="runsList"></div>
+      </div>
+
+      <!-- Center Panel: Control / Create -->
+      <div class="panel">
+        <!-- Create Run Form -->
+        <div id="createRunPanel" style="display: none;">
+          <h3>Create New Quiz Run</h3>
+          <div class="form-group">
+            <label>Run Name</label>
+            <input type="text" id="runName" placeholder="e.g., Monday Training" maxlength="50">
+          </div>
+          <div class="form-group">
+            <label>Groups (comma-separated)</label>
+            <textarea id="groupList" placeholder="e.g., Team A, Team B, Team C" rows="4"></textarea>
+            <small>Enter 3-10 unique group names</small>
+          </div>
+          <div class="form-group">
+            <label>Questions</label>
+            <div style="margin-top: 10px;">
+              <button id="useDefaultBtn" class="btn btn-secondary" style="width: 100%; margin-bottom: 10px;">Use 15 Sample Questions</button>
+              <button id="manualQBtn" class="btn btn-secondary" style="width: 100%;">Add Questions Manually</button>
+            </div>
+          </div>
+          <div id="manualQuestionForm" style="display: none; margin-top: 20px;">
+            <h4 style="color: #FFBB00; margin-bottom: 15px;">Add Questions</h4>
+            <div id="questionsList"></div>
+            <button id="addQBtn" class="btn btn-secondary" style="width: 100%; margin-top: 10px;">+ Add Question</button>
+          </div>
+          <button id="createRunSubmitBtn" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Create Run</button>
+          <button id="cancelCreateBtn" class="btn btn-secondary" style="width: 100%; margin-top: 10px;">Cancel</button>
+        </div>
+
+        <!-- Live Control Panel -->
+        <div id="liveControlPanel" style="display: none;">
+          <h3>Live Control</h3>
+          <div style="background: rgba(255, 187, 0, 0.1); border: 1px solid #FFBB00; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+            <p style="color: #aaa; margin-bottom: 5px;">Current Question</p>
+            <p id="currentQDisplay" style="font-size: 1.2rem; color: #FFBB00; font-weight: 700;">Q1 / 15</p>
+            <p id="currentQText" style="margin-top: 10px; font-size: 0.95rem;"></p>
+            <p id="correctAnswerDisplay" style="margin-top: 10px; color: #06A77D; font-weight: 600;"></p>
+          </div>
+
+          <div style="background: rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 5px;">Live Players</p>
+            <p id="livePlayerCount" style="font-size: 1.8rem; color: #FFBB00; font-weight: 700;">0</p>
+          </div>
+
+          <button id="revealBtn" class="btn btn-primary control-btn">REVEAL ANSWER</button>
+          <button id="nextBtn" class="btn btn-secondary control-btn">NEXT QUESTION</button>
+          <button id="endBtn" class="btn btn-secondary control-btn" style="background: #E63946;">END QUIZ</button>
+        </div>
+
+        <!-- View Run (Read-only) -->
+        <div id="viewRunPanel" style="display: none;">
+          <h3>Run Details</h3>
+          <div style="background: rgba(255, 187, 0, 0.1); border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+            <p id="viewRunName" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;"></p>
+            <p id="viewRunStatus" style="margin-bottom: 5px;"><span class="status-badge"></span></p>
+            <p id="viewRunPlayers" style="color: #aaa;"></p>
+            <p id="viewRunQuestions" style="color: #aaa;"></p>
+          </div>
+          <button id="manageRunBtn" class="btn btn-primary control-btn">Manage Run</button>
+          <button id="viewReportBtn" class="btn btn-secondary control-btn">View Report</button>
+          <button id="deleteRunBtn" class="btn btn-secondary control-btn" style="background: #E63946; color: #fff;">Delete Run</button>
+          <button id="backBtn" class="btn btn-secondary control-btn">Back</button>
+        </div>
+      </div>
+
+      <!-- Right Panel: Leaderboard / Stats -->
+      <div class="panel">
+        <h3>Top Scorers</h3>
+        <div id="leaderboardWidget" style="font-size: 0.9rem;">
+          <p style="color: #888; text-align: center; padding: 20px 0;">No data yet</p>
+        </div>
+        
+        <h3 style="margin-top: 30px;">Group Progress</h3>
+        <div id="groupProgressWidget" style="font-size: 0.9rem;">
+          <p style="color: #888; text-align: center; padding: 20px 0;">No groups</p>
+        </div>
+
+        <h3 style="margin-top: 30px;">Fastest 3</h3>
+        <div id="fastestWidget" style="font-size: 0.9rem;">
+          <p style="color: #888; text-align: center; padding: 20px 0;">No responses yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Report Screen -->
+  <div id="reportScreen" class="screen" style="display: none;">
+    <div class="panel" style="max-width: 900px; width: 100%;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3>Quiz Report</h3>
+        <button id="closeReportBtn" class="btn-close">×</button>
+      </div>
+      <div id="reportContent" style="max-height: 70vh; overflow-y: auto;"></div>
+      <button id="exportCSVBtn" class="btn btn-secondary" style="width: 100%; margin-top: 20px; margin-right: 10px;">Export CSV</button>
+      <button id="exportPDFBtn" class="btn btn-secondary" style="width: 100%; margin-top: 10px;">Export PDF</button>
+      <button id="backFromReportBtn" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Back</button>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <!-- jsPDF for PDF export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/host.js"></script>
+</body>
+</html>
